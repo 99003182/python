@@ -1,0 +1,46 @@
+print("---Attendance system---")
+print("1.Enter Details\n2.View Details")
+c = int(input("Enter Choice: "))
+data = []
+
+
+class valid:
+    def enter(c):
+        print("\nAdding Details")
+        reg_no = input("\nEnter Registration number: ")
+        name = input("\nEnter Student Name: ")
+        conducted = input("\nEnter Classes Conducted: ")
+        attended = input("\nEnter Classes Attended: ")
+        data.append(reg_no)
+        data.append(name)
+        data.append(conducted)
+        data.append(attended)
+        file = open('attendance.txt', 'a')
+        file.write(str(data) + '\n')
+        file.close()
+        print("\nData Added Successfully")
+        print(data)
+
+    def view(x):
+        file = open('attendance.txt', 'r')
+        x = file.read()
+        print(x)
+
+    def invalid(c):
+        print("Invalid Choice")
+        '''a = input("Do You Want To Continue Y/N: ")
+        if a == 'Y':
+            Obj4 = choice()
+            Obj4.my_choice()
+        elif a == 'N':
+            print("Exit")'''
+if c == 1:
+    obj1 = valid()
+    obj1.enter()
+elif c == 2:
+    obj2 = valid()
+    obj2.view()
+else:
+    obj3 = valid()
+    obj3.invalid()
+
